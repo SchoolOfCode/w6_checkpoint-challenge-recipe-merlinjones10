@@ -18,6 +18,7 @@ async function fetchRecipe(food) {
   const data = await response.json();
   console.log(data.hits[0].recipe.url);
   recipeLabel.innerHTML = data.hits[0].recipe.url;
+  recipeLabel.href = data.hits[0].recipe.url;
   //--- write your code above ---
 }
 
