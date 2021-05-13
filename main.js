@@ -34,14 +34,12 @@ async function fetchRecipe(food) {
   const response = await fetch(requestUrl);
   const data = await response.json();
   console.log(data);
-  let sampleImage =
-    "url('https://www.edamam.com/web-img/16c/16c9f7a2bcf8a7643ada8729cd693c9d.jpg')";
 
   for (i = 0; i < 5; i++) {
     recipes[i].innerHTML = data.hits[i].recipe.url;
     recipes[i].href = data.hits[i].recipe.url;
     images.push(data.hits[i].recipe.image);
-    listItems[i].style.listStyleImage = `url("${images[i]}")`;
+    listItems[i].style.backgroundImage = `url("${images[i]}")`;
   }
   images = [];
 

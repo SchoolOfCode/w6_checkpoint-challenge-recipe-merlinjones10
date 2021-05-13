@@ -4,8 +4,16 @@
   margin-right: auto;
 } */
 
-li {
+/* ul li {
   padding: 5px;
-  text-align: right;
+  text-align: center;
   list-style-position: inside;
+} */
+
+ol li {
+  font-size: 20px;
+  background-repeat: no-repeat;
+  line-height: 100px;
+  padding-left: 10%;
+  background-size: 100%;
 }
