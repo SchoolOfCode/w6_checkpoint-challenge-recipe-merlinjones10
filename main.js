@@ -43,6 +43,7 @@ async function fetchRecipe(food) {
     images.push(data.hits[i].recipe.image);
     listItems[i].style.listStyleImage = `url("${images[i]}")`;
   }
+  images = [];
 
   // listItems.forEach((element) => {
   //   element.style.listStyleImage = sampleImage;
