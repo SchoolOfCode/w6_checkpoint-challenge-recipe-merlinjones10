@@ -60,10 +60,9 @@ async function fetchRecipe(food) {
   const data = await response.json();
 
   for (i = 0; i < recipes.length; i++) {
-    recipes[i].innerHTML = data.hits[i].recipe.url;
+    recipes[i].innerHTML = data.hits[i].recipe.label;
     recipes[i].href = data.hits[i].recipe.url;
     images[i].src = data.hits[i].recipe.image;
-    cardTitles[i].innerHTML = data.hits[i].recipe.label;
   }
   console.log(data);
 }
