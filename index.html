@@ -7,18 +7,67 @@
     <link href="./style.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
-    <section id="recipe-section">
-      <h2 class="section-heading">Welcome to the Recipe Finder!</h2>
-      <input aria-label="food-input" id="food-input" onchange="handleFoodChange()" />
+    <header>
+      <h2 class="section-heading">Recipe Finder</h2>
+      <input
+        aria-label="food-input"
+        id="food-input"
+        placeholder="enter ingredients here"
+        onchange="handleFoodChange()"
+      />
       <button id="recipe-button" onclick="handleRecipeClick()">Give me a recipe!</button>
-      <ol>
-        <li id="li1"><a id="recipe-label"></a></li>
-        <li id="li2"><a id="recipe-label2"></a></li>
-        <li id="li3"><a id="recipe-label3"></a></li>
-        <li id="li4"><a id="recipe-label4"></a></li>
-        <li id="li5"><a id="recipe-label5"></a></li>
-      </ol>
-    </section>
+    </header>
+    <div id="search-results">
+      <h5 id="results">showing results for:</h5>
+    </div>
+    <!-- RECIPE CARDS -->
+    <section id="recipe-section">
+      <article class="card" id="article1">
+        <img id="img1" alt="recipe image" />
+        <div class="container">
+          <h4 id="recipeTitle1"></h4>
+          <a id="recipe-linkl"></a>
+        </div>
+      </article>
+
+      <article class="card" id="article2">
+        <img id="img2"  alt="recipe image" />
+        <div class="container">
+          <h4 id="recipeTitle2"></h4>
+          <a id="recipe-link2"></a>
+        </div>
+      </article>
+      <article class="card" id="article3">
+        <img id="img3"  alt="recipe image" />
+        <div class="container">
+          <h4 id="recipeTitle3"></h4>
+          <a id="recipe-link3"></a>
+        </div>
+      </article>
+
+      <article class="card" id="article4">
+        <img id="img4"  alt="recipe image" />
+        <div class="container">
+          <h4 id="recipeTitle4"></h4>
+          <a id="recipe-link4"></a>
+        </div>
+      </article>
+      <article class="card" id="article5">
+        <img id="img5"  alt="recipe image" />
+        <div class="container">
+          <h4 id="recipeTitle5"></h4>
+          <a id="recipe-link5"></a>
+        </div>
+      </article>
+      <article class="card" id="article6">
+        <img id="img6"  alt="recipe image" />
+        <div class="container">
+          <h4 id="recipeTitle6"></h4>
+          <a id="recipe-link6"></a>
+        </div>
+      </article>
+<!-- RECIPE CARDS END -->
+
     <script src="./main.js"></script>
   </body>
 </html>

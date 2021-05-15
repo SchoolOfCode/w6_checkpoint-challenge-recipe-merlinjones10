@@ -1,19 +1,57 @@
-/* ol {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-} */
+body {
+  background-color: rgb(29, 29, 29);
+}
 
-/* ul li {
-  padding: 5px;
-  text-align: center;
-  list-style-position: inside;
-} */
+header {
+  background-color: rgb(238, 50, 50);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+}
+header h2 {
+  padding-right: 10px;
+  align-self: flex;
+}
+header input {
+  flex-basis: 500px;
+  /* flex-grow: 1; */
+  height: 40px;
+}
+header button {
+  height: 50px;
+}
 
-ol li {
-  font-size: 20px;
-  background-repeat: no-repeat;
-  line-height: 100px;
-  padding-left: 10%;
-  background-size: 100%;
+h5 {
+  color: rgb(155, 155, 155);
+  text-align: right;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+#recipe-section {
+  background-color: blanchedalmond;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+article {
+  padding: 10px;
 }
