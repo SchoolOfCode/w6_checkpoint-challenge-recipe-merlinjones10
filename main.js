@@ -29,6 +29,7 @@ const img4 = document.querySelector("#img5");
 const img5 = document.querySelector("#img6");
 
 const results = document.querySelector("#results");
+const recipeSection = document.querySelector("#recipe-section");
 
 let recipes = [recipeLink0, recipeLink1, recipeLink2, recipeLink3, recipeLink4, recipeLink5];
 let articles = [article0, article1, article2, article3, article4];
@@ -42,6 +43,20 @@ let cardTitles = [
   recipeTitle4,
   recipeTitle5,
 ];
+function showItems() {
+  recipeSection.style.display = "flex";
+  results.style.display = "block";
+  images.forEach((section) => (section.style.display = "block"));
+  articles.forEach((section) => (section.style.display = "block"));
+}
+
+function hideItems() {
+  results.style.display = "none";
+  recipeSection.style.display = "none";
+
+  images.forEach((section) => (section.style.display = "none"));
+  articles.forEach((section) => (section.style.display = "none"));
+}
 
 function handleRecipeClick() {
   fetchRecipe(foodToSearch);
@@ -56,7 +71,7 @@ function handleFoodChange() {
 }
 
 async function fetchRecipe(food) {
-  results.innerHTML = `Showing results for: ${food}`;
+  showItems();
   let requestUrl = `https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`;
   const response = await fetch(requestUrl);
   const data = await response.json();
@@ -66,26 +81,21 @@ async function fetchRecipe(food) {
     recipes[i].href = data.hits[i].recipe.url;
     images[i].src = data.hits[i].recipe.image;
   }
-  console.log(data);
+  results.innerHTML = `Showing results for: ${food}`;
 }
 
 async function fetchCocktail(food) {
-  results.innerHTML = `Showing results for: ${food}`;
+  showItems();
   let requestUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${food}`;
   const response = await fetch(requestUrl);
   const data = await response.json();
-  console.log(data);
 
   for (i = 0; i < recipes.length; i++) {
     recipes[i].innerHTML = data.drinks[i].strDrink;
     recipes[i].href = `https://www.thecocktaildb.com/drink/${data.drinks[i].idDrink}`;
     images[i].src = data.drinks[i].strDrinkThumb;
   }
+  results.innerHTML = `Showing results for: ${food}`;
 }
 
-// www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
-
-// Add an option to give cocktail by ingredient
-//Add cocktail button next to the food button and use the same search breakAfter:
-// call a cocktail function instead when that button is pressed
-//use handlefoodchange
+window.onload = hideItems;
