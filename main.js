@@ -29,7 +29,6 @@ const img4 = document.querySelector("#img5");
 const img5 = document.querySelector("#img6");
 
 const results = document.querySelector("#results");
-results.innerText = "beans";
 
 let recipes = [recipeLink0, recipeLink1, recipeLink2, recipeLink3, recipeLink4, recipeLink5];
 let articles = [article0, article1, article2, article3, article4];
@@ -48,11 +47,14 @@ function handleRecipeClick() {
   fetchRecipe(foodToSearch);
 }
 
+function handleCocktailClick() {
+  fetchCocktail(foodToSearch);
+}
+
 function handleFoodChange() {
   foodToSearch = document.querySelector("#food-input").value;
 }
 
-// let images = [];
 async function fetchRecipe(food) {
   results.innerHTML = `Showing results for: ${food}`;
   let requestUrl = `https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`;
@@ -66,3 +68,24 @@ async function fetchRecipe(food) {
   }
   console.log(data);
 }
+
+async function fetchCocktail(food) {
+  results.innerHTML = `Showing results for: ${food}`;
+  let requestUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${food}`;
+  const response = await fetch(requestUrl);
+  const data = await response.json();
+  console.log(data);
+
+  for (i = 0; i < recipes.length; i++) {
+    recipes[i].innerHTML = data.drinks[i].strDrink;
+    recipes[i].href = `https://www.thecocktaildb.com/drink/${data.drinks[i].idDrink}`;
+    images[i].src = data.drinks[i].strDrinkThumb;
+  }
+}
+
+// www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
+
+// Add an option to give cocktail by ingredient
+//Add cocktail button next to the food button and use the same search breakAfter:
+// call a cocktail function instead when that button is pressed
+//use handlefoodchange
