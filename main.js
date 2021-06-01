@@ -53,7 +53,6 @@ function showItems() {
 function hideItems() {
   results.style.display = "none";
   recipeSection.style.display = "none";
-
   images.forEach((section) => (section.style.display = "none"));
   articles.forEach((section) => (section.style.display = "none"));
 }
